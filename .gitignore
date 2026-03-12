@@ -1,0 +1,23 @@
+# Pasta de compilação (CMake)
+build/
+bin/
+obj/
+
+# Arquivos do Visual Studio Code (opcional, mas recomendado)
+.vscode/
+.cmake/
+
+# Arquivos de log e cache do CMake
+CMakeCache.txt
+CMakeFiles/
+CMakeUserPresets.json
+_deps/
+
+# Executáveis soltos
+*.exe
+*.out
+*.app
+
+# Arquivos temporários do Windows/Sistemas
+Thumbs.db
+.DS_Store
