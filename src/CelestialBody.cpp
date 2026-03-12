@@ -1,15 +1,13 @@
 #include "../include/CelestialBody.h"
-#include "../include/Vector.h"
 
-constexpr double G = 6.67430e-11;
-
-CelestialBody::CelestialBody() {}
+constexpr double G = 1;
 
 CelestialBody::CelestialBody(const Vector& position, const Vector& velocity, double mass, double radius) {
     this->position = position;
     this->velocity = velocity;
     this->mass = mass;
     this->radius = radius;
+    this->force_accumulator = {0.0, 0.0};
 }
 
 double CelestialBody::getMass() const {

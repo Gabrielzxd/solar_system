@@ -1,3 +1,5 @@
+#pragma once
+
 struct Vector{
     double x, y;
     Vector operator+(const Vector& other) const;

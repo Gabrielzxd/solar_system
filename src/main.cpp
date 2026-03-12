@@ -1,18 +1,28 @@
 #include <iostream>
-#include "../include/Vector.h"
+#include <vector>
+#include "../include/CelestialBody.h"
 
 int main() {
-    Vector v1{1.0, 2.0};
-    Vector v2{3.0, 4.0};
+    std::vector<CelestialBody> bodies;
+    bodies.emplace_back(Vector{0.0, 0.0}, Vector{0.0, 0.0}, 100.0, 1.0); //Sol
+    bodies.emplace_back(Vector{10.0, 0.0}, Vector{0.0, 3.16}, 1.0, 0.1); //Terra
 
-    Vector sum = v1 + v2;
-    Vector diff = v1 - v2;
-    Vector scaled = v1 * 2.0;
-    double dot = v1 * v2;
+    double dt = 0.01;
 
-    std::cout << "v1 + v2 = (" << sum.x << ", " << sum.y << ")\n";
-    std::cout << "v1 - v2 = (" << diff.x << ", " << diff.y << ")\n";
-    std::cout << "v1 * 2.0 = (" << scaled.x << ", " << scaled.y << ")\n";
-    std::cout << "v1 * v2 (dot product) = " << dot << "\n";
-    return 0;
+    for (int passo = 0; passo < 1000; passo++){
+        for(size_t i = 0; i < bodies.size(); i++){
+            for(size_t j = 0; j < bodies.size(); j++){
+                if(i != j){
+                    bodies[i].attract(bodies[j]);
+                }
+            }
+        }
+        for (auto& body : bodies) {
+            body.update(dt);
+        }
+        if (passo % 10 == 0) {
+        Vector p = bodies[1].getPosition();
+        std::cout << "Pos: (" << p.x << ", " << p.y << ") | Dist: " << p.magnitude() << "\n";
+    }
+    }
 }
