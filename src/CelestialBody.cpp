@@ -1,13 +1,24 @@
 #include "../include/CelestialBody.h"
 
-constexpr double G = 1;
+constexpr double PI = 3.14159;
+constexpr double G = 4 * PI * PI;
 
-CelestialBody::CelestialBody(const Vector& position, const Vector& velocity, double mass, double radius) {
+CelestialBody::CelestialBody(std::string name, const Vector& position, const Vector& velocity, double mass, double radius, Color RGB) {
+    this->name = name;
     this->position = position;
     this->velocity = velocity;
     this->mass = mass;
     this->radius = radius;
+    this->color = RGB;
     this->force_accumulator = {0.0, 0.0};
+}
+
+std::string CelestialBody::getName() const {
+    return this->name;
+}
+
+void CelestialBody::setName(const std::string& new_name) {
+    this->name = new_name;
 }
 
 double CelestialBody::getMass() const {
@@ -32,6 +43,10 @@ Vector CelestialBody::getVelocity() const {
 
 void CelestialBody::setVelocity(const Vector& new_velocity) {
     this->velocity = new_velocity;
+}
+
+Color CelestialBody::getColor() const {
+    return this->color;
 }
 
 Vector CelestialBody::getGravitationalForce(const CelestialBody& other) const {
