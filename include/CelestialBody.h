@@ -1,6 +1,8 @@
 #pragma once
-#include "Vector.h"
+#include "../include/linalg-lib/vector.hpp"
 #include <iostream>
+
+using Vec2 = linalg::Vector<2>;
 
 struct Color{
     float r, g, b;
@@ -9,26 +11,26 @@ struct Color{
 class CelestialBody {
 private:
     std::string name;
-    Vector position;
-    Vector velocity;
+    Vec2 position;
+    Vec2 velocity;
     double mass;
     double radius;
-    Vector force_accumulator;
+    Vec2 force_accumulator;
     Color color;
 
 public:
-    CelestialBody(std::string name, const Vector& position, const Vector& velocity, double mass, double radius, Color RGB);
-    Vector getPosition() const;
+    CelestialBody(std::string name, const Vec2& position, const Vec2& velocity, double mass, double radius, Color RGB);
+    Vec2 getPosition() const;
     void setName(const std::string& new_name);
     std::string getName() const;
-    void setPosition(const Vector& new_position);
-    Vector getVelocity() const;
-    void setVelocity(const Vector& new_velocity);
+    void setPosition(const Vec2& new_position);
+    Vec2 getVelocity() const;
+    void setVelocity(const Vec2& new_velocity);
     double getMass() const;
     double getRadius() const;
     void attract(const CelestialBody& other);
-    Vector getGravitationalForce(const CelestialBody& other) const;
-    Vector getAcceleration(const CelestialBody& other) const;
+    Vec2 getGravitationalForce(const CelestialBody& other) const;
+    Vec2 getAcceleration(const CelestialBody& other) const;
     void update(double dt);
     Color getColor() const;
 };
