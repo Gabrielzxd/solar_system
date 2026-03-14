@@ -21,7 +21,6 @@ include_directories(include)
 #file(GLOB SOURCES "src/*.cpp" "src/*.c")
 set(SOURCES 
     src/main.cpp
-    src/Vector.cpp
     src/CelestialBody.cpp
     src/glad.c
 )
