@@ -22,6 +22,7 @@ include_directories(include)
 set(SOURCES 
     src/main.cpp
     src/CelestialBody.cpp
+    src/stb_image.cpp
     src/glad.c
 )
 

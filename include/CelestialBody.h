@@ -18,10 +18,10 @@ private:
     double radius;
     Vec2 force_accumulator;
     Color color;
-    GLuint textureID;
+//    GLuint textureID;
 
 public:
-    CelestialBody(std::string name, const Vec2& position, const Vec2& velocity, double mass, double radius, Color RGB, const std::string& texturePath);
+    CelestialBody(std::string name, const Vec2& position, const Vec2& velocity, double mass, double radius, Color RGB);
     Vec2 getPosition() const;
     void setName(const std::string& new_name);
     std::string getName() const;
@@ -35,5 +35,5 @@ public:
     Vec2 getAcceleration(const CelestialBody& other) const;
     void update(double dt);
     Color getColor() const;
-    GLuint getTextureID() const;
+//    GLuint getTextureID() const;
 };

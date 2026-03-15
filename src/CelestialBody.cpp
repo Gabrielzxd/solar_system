@@ -3,10 +3,10 @@
 constexpr double PI = 3.14159;
 constexpr double G = 4 * PI * PI;
 
-CelestialBody::CelestialBody(std::string name, const Vec2& position, const Vec2& velocity, double mass, double radius, Color RGB, const std::string& texturePath) 
+CelestialBody::CelestialBody(std::string name, const Vec2& position, const Vec2& velocity, double mass, double radius, Color RGB) 
     : name(name), position(position), velocity(velocity), mass(mass), radius(radius), force_accumulator(Vec2::zero()), color(RGB) 
 {
-    this->textureID = loadTexture(texturePath);
+//    this->textureID = loadTexture(texturePath);
 }
 
 std::string CelestialBody::getName() const {
@@ -72,6 +72,6 @@ void CelestialBody::update(double dt) {
     this->force_accumulator = {0.0, 0.0};
 }
 
-GLuint CelestialBody::getTextureID() const {
-    return textureID;
-}
+//GLuint CelestialBody::getTextureID() const {
+//    return textureID;
+//}
