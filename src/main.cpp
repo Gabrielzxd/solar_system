@@ -3,6 +3,7 @@
 #include <vector>
 #include "../include/CelestialBody.h"
 #include <cmath>
+#include "../include/stb_image.h"
 
 int main() {
     glfwInit();
