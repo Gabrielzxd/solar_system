@@ -1,6 +1,7 @@
 #pragma once
 #include "../include/linalg-lib/vector.hpp"
 #include <iostream>
+#include <TextureLoader.h>
 
 using Vec2 = linalg::Vector<2>;
 
@@ -17,9 +18,10 @@ private:
     double radius;
     Vec2 force_accumulator;
     Color color;
+    GLuint textureID;
 
 public:
-    CelestialBody(std::string name, const Vec2& position, const Vec2& velocity, double mass, double radius, Color RGB);
+    CelestialBody(std::string name, const Vec2& position, const Vec2& velocity, double mass, double radius, Color RGB, const std::string& texturePath);
     Vec2 getPosition() const;
     void setName(const std::string& new_name);
     std::string getName() const;
@@ -33,4 +35,5 @@ public:
     Vec2 getAcceleration(const CelestialBody& other) const;
     void update(double dt);
     Color getColor() const;
+    GLuint getTextureID() const;
 };
