@@ -3,13 +3,11 @@
 
 #pragma once
 #include <glad/glad.h>
-
 #include "stb_image.h"
-
 #include <iostream>
 #include <string>
 
-GLuint loadTexture(const std::string& path) {
+inline GLuint loadTexture(const std::string& path) {
     GLuint textureID;
     glGenTextures(1, &textureID);
     glBindTexture(GL_TEXTURE_2D, textureID);
