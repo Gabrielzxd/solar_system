@@ -3,7 +3,10 @@
 #include <iostream>
 #include <TextureLoader.h>
 
-using Vec2 = linalg::Vector<2>;
+constexpr double PI = 3.14159;
+constexpr double G = 4 * PI * PI;
+
+using Vec3 = linalg::Vector<3>;
 
 struct Color{
     float r, g, b;
@@ -12,28 +15,23 @@ struct Color{
 class CelestialBody {
 private:
     std::string name;
-    Vec2 position;
-    Vec2 velocity;
+    Vec3 position;
+    Vec3 velocity;
     double mass;
     double radius;
-    Vec2 force_accumulator;
     Color color;
 //    GLuint textureID;
 
 public:
-    CelestialBody(std::string name, const Vec2& position, const Vec2& velocity, double mass, double radius, Color RGB);
-    Vec2 getPosition() const;
+    CelestialBody(std::string name, const Vec3& position, const Vec3& velocity, double mass, double radius, Color RGB);
+    Vec3 getPosition() const;
     void setName(const std::string& new_name);
     std::string getName() const;
-    void setPosition(const Vec2& new_position);
-    Vec2 getVelocity() const;
-    void setVelocity(const Vec2& new_velocity);
+    void setPosition(const Vec3& new_position);
+    Vec3 getVelocity() const;
+    void setVelocity(const Vec3& new_velocity);
     double getMass() const;
     double getRadius() const;
-    void attract(const CelestialBody& other);
-    Vec2 getGravitationalForce(const CelestialBody& other) const;
-    Vec2 getAcceleration(const CelestialBody& other) const;
-    void update(double dt);
     Color getColor() const;
 //    GLuint getTextureID() const;
 };
