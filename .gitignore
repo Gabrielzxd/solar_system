@@ -2,6 +2,7 @@
 build/
 bin/
 obj/
+output/
 
 # Arquivos do Visual Studio Code (opcional, mas recomendado)
 .vscode/
